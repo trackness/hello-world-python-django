@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: hello-world-python-django:latest
+    volumes:
+      - .:/app
+    command: poetry run python hello_world_python_django/manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
